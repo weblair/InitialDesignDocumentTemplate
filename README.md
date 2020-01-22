@@ -1,0 +1,2 @@
+# InitialDesignDocumentTemplate
+Template for developing the InitialDesignDocument
