@@ -274,3 +274,7 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Visual Paradigm backup files
+*.bak_*
+*.vux

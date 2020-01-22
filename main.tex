@@ -1,0 +1,83 @@
+\documentclass{book}
+
+\newcommand{\ProjectName}{[PROJECT NAME]}
+\newcommand{\DocumentAuthor}{[IDD AUTHOR]}
+\newif\ifdraft{}
+\drafttrue{}
+
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{titlepic}
+\usepackage[normalem]{ulem}
+\usepackage{vhistory}
+\usepackage[capitalize]{cleveref}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\ifdraft{}
+    \chead{DRAFT}
+    \cfoot{DRAFT}
+\fi
+\lhead{\ProjectName}
+\rhead{\leftmark}
+\lfoot{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\renewcommand*\thesection{\arabic{section}}
+
+\title{\ProjectName{} \\ Initial Design Document}
+%\titlepic{\includegraphics[width=0.5\textwidth]{logo.png}}
+\author{\DocumentAuthor}
+\date{\vhCurrentDate}
+
+\makeindex
+
+\begin{document}
+\maketitle
+
+\frontmatter
+
+\input{vhistory}
+
+\cleardoublepage{}
+\pdfbookmark{\contentsname}{Contents}
+\tableofcontents
+
+\mainmatter{}
+\part{Project Requirements}\label{part:requirements}
+\input{requirements/problem}
+\input{requirements/dod}
+\input{requirements/pitfalls}
+\input{requirements/disclaimer}
+
+\part{Project Design}%\label{part:design}
+\input{design/repositories}
+\input{design/summary}
+\input{design/architecture}
+\input{design/ui}
+\input{design/api}
+\input{design/schema}
+\input{design/infrastructure}
+\input{design/testing}
+\input{design/ci}
+\input{design/analytics}
+\input{design/scaling}
+\input{design/security}
+
+\bookmarksetupnext{level=part}
+\appendix\addcontentsline{toc}{part}{Appendices}
+\input{appendices/user_stories}
+
+\cleardoublepage{}
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\cleardoublepage{}
+\end{document}
