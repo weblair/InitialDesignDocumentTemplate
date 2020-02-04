@@ -32,6 +32,12 @@
 
 \renewcommand*\thesection{\arabic{section}}
 
+\newtheorem{storythm}{Story}
+\newenvironment{story}[1]
+  {\renewcommand\thestorythm{#1}\storythm}
+  {\endstorythm}
+
+
 \title{\ProjectName{} \\ Initial Design Document}
 %\titlepic{\includegraphics[width=0.5\textwidth]{logo.png}}
 \author{\DocumentAuthor}
